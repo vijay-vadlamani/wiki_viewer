@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vijay Vadlamani</title>
+    <!-- build:css(.tmp) styles/main.min.css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/html" href="styles/main.scss"/>
+    <!-- endbuild -->
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+</head>
+<body>
+<header>
+
+</header>
+<div class="container">
+    <!--Your content goes here-->
+    <div id="content"></div>
+</div>
+<footer class="footer">
+    <p class="text-center">
+        ©2015 - Vijay Vadlamani
+    </p>
+</footer>
+<!-- build:js(.) scripts/app.bootstrap.build.js -->
+<!-- inject:js -->
+<!-- endinject -->
+<!-- endbuild -->
+
+<!-- build:remove -->
+<script src="jspm_packages/system.js"></script>
+<script src="jspm.config.js"></script>
+<!-- don't remove the tag bellow, it's changed on gulp serve task by browserSync, injecting jspm configuration overrides -->
+<!-- inject-browser-sync -->
+<script>
+    System.import('app/bootstrap.js').catch(console.error.bind(console)); // make sure any errors are print to console
+</script>
+<!-- endbuild -->
+<!-- inject:analytics -->
+<!-- endinject -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</body>
+</html>
