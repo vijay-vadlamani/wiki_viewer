@@ -6,6 +6,8 @@ import MotherComponent from '../MotherComponent/MotherComponent.js';
 import template from './Home.html!text';
 // import stylesheet from './Home.scss!';
 
+import {geolocation} from '../../Services/geolocation.js';
+
 export default class Home extends MotherComponent {
     /**
      * Creates a full Home component with its whole logic encapsulated:
@@ -17,7 +19,7 @@ export default class Home extends MotherComponent {
      * ```
      * var myHome = (new Home('home')).init();
      * ```
-     * @namespace Components.Home
+     * @namespace Components.Home.Home
      * @class Home
      * @extends Components.MotherComponent.MotherComponent
      * @constructor
@@ -35,10 +37,10 @@ export default class Home extends MotherComponent {
      */
     init() {
 
-        let geolocationInfosBloc = this.domNode.querySelector('.geolocation-infos');
+        let geolocationInfo = this.domNode.querySelector('.location');
 
-        this.domNode.querySelector('.geolocation-button').addEventListener('click', () => {
-            geolocationInfosBloc.style.display = "none";
+        this.domNode.querySelector('.showLocation').addEventListener('click', () => {
+            geolocationInfo.style.display = "none";
             geolocation()
                 .then((result) => {
                     console.log(result);
@@ -51,13 +53,13 @@ export default class Home extends MotherComponent {
           <li>Latitude : ${result.latitude} / Longitude: ${result.longitude}</li>
           <li>Timeout : ${result.timeout}ms</li>
         `;
-                    geolocationInfosBloc.style.display = "block";
-                    geolocationInfosBloc.innerHTML = tpl;
+                    geolocationInfo.style.display = "block";
+                    geolocationInfo.innerHTML = tpl;
                 })
                 .catch(e => {
                     console.error(e);
-                    geolocationInfosBloc.innerHTML = '<li>An error occured</li>';
-                    geolocationInfosBloc.style.display = "block";
+                    geolocationInfo.innerHTML = '<li>An error occured</li>';
+                    geolocationInfo.style.display = "block";
                 });
         }, false);
         return this;
