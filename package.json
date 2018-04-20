@@ -1,7 +1,7 @@
 {
-  "name": "my-sample-project",
+  "name": "random-quote-machine",
   "version": "0.10.3",
-  "description": "Seed project for ES6 in Angular archetecture",
+  "description": "Random quote machine",
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/.bin/gulp serve",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/vijay-vadlamani/my-sample-project.git"
+    "url": "https://github.com/vijay-vadlamani/random-quotes.git"
   },
   "bugs": {
     "url": ""
@@ -24,7 +24,7 @@
   "jspm": {
     "configFile": "jspm.config.js",
     "dependencies": {
-      "bootstrap-sass": "npm:bootstrap-sass@3.3.7",
+      "bootstrap-sass": "npm:bootstrap@4.1.0",
       "clean-css": "npm:clean-css@^4.1.11",
       "css": "github:systemjs/plugin-css@^0.1.17",
       "fetch-polyfill": "npm:fetch-polyfill@^0.8.1",
@@ -65,7 +65,7 @@
     "gulp-sass": "^2.2.0",
     "gulp-size": "^2.0.0",
     "gulp-sourcemaps": "^1.5.2",
-    "gulp-uglify": "^3.0.0",
+    "gulp-uglify": "3.0.0",
     "gulp-usemin": "^0.3.20",
     "gulp-util": "^3.0.5",
     "jasmine-core": "^2.3.4",
@@ -102,6 +102,9 @@
     "npm": ">=2.0.0"
   },
   "dependencies": {
+    "bootstrap": "^4.1.0",
+    "jquery": "^3.3.1",
+    "popper": "^1.0.1",
     "webdriver-manager": "^12.0.6"
   }
 }
