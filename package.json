@@ -1,7 +1,7 @@
 {
-  "name": "random-quote-machine",
+  "name": "sample-project",
   "version": "0.10.3",
-  "description": "Random quote machine",
+  "description": "Sample Project Boilerplate",
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/.bin/gulp serve",
