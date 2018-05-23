@@ -4,9 +4,10 @@
 import MotherComponent from '../MotherComponent/MotherComponent.js';
 
 import template from './Home.html!text';
-// import stylesheet from './Home.scss!';
+import stylesheet from './Home.css!';
 
 import {geolocation} from '../../Services/geolocation.js';
+import {wikiRetreiver} from '../../Services/wiki.js';
 
 export default class Home extends MotherComponent {
     /**
@@ -29,39 +30,19 @@ export default class Home extends MotherComponent {
         super(domNode, template);
     }
 
-    /**
-     * Inits the Home component, adding all its specific logic.
-     * @method init
-     * @chainable
-     * @return {Components.Home.Home}
-     */
     init() {
+        var search = this.domNode.querySelector('.searchWiki'),
+            content = this.domNode.querySelector('#contentView');
 
-        let geolocationInfo = this.domNode.querySelector('.location');
-
-        this.domNode.querySelector('.showLocation').addEventListener('click', () => {
-            geolocationInfo.style.display = "none";
-            geolocation()
-                .then((result) => {
-                    console.log(result);
-                    let tpl = `
-          <li>City: ${result.city}</li>
-          <li>Country: ${result.country_name}</li>
-          <li>Region: ${result.region_name}</li>
-          <li>Time zone: ${result.time_zone}</li>
-          <li>Region: ${result.region_name}</li>
-          <li>Latitude : ${result.latitude} / Longitude: ${result.longitude}</li>
-          <li>Timeout : ${result.timeout}ms</li>
-        `;
-                    geolocationInfo.style.display = "block";
-                    geolocationInfo.innerHTML = tpl;
-                })
-                .catch(e => {
-                    console.error(e);
-                    geolocationInfo.innerHTML = '<li>An error occured</li>';
-                    geolocationInfo.style.display = "block";
-                });
-        }, false);
-        return this;
+        search.addEventListener('click', () => {
+            let inputValue = document.getElementsByTagName("input")[0].value;
+            wikiRetreiver(inputValue).then((res) => {
+                let textToShow = res.parse.text["*"];
+                let $el = document.createElement('html');
+                $el.innerHTML = `${textToShow}`;
+                console.log("textToShow", $el);
+                content.appendChild($el);
+            })
+        });
     }
 }
